@@ -4,7 +4,7 @@ module.exports = {
     extend: {
       // ...existing config
       fontFamily: {
-        'inter': ['Inter', 'sans-serif'],
+        'jakarta': ['Plus Jakarta Sans', 'sans-serif'],
       },
     },
   },
