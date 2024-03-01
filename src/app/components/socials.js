@@ -6,9 +6,12 @@ import { motion } from "framer-motion";
 import { useRef } from "react";
 
 const Socials = () => {
-
+  const duration = 0.5;
+  const initial = { opacity: 0, y: -100, marginDown: -10};
+  const animate = { opacity: 1, y: 0, marginDown: 0};
   return ( <>
-          <div className="flex flex-col w-full h-auto items-start mt-5 px-7">
+  <motion.div initial = {initial} animate={animate} duration = {duration} className="flex flex-col w-full h-auto items-start">
+  <div className="flex flex-col w-full h-auto items-start mt-5 px-7">
         <p className="text-neutral-400 font-bold text-[12px] mt-5 mb-2">ACCOUNT & SOCIALS</p>
         </div>
         <div className="flex flex-col w-full bg-neutral-800 h-auto py-5 gap-y-0 ">
@@ -93,6 +96,8 @@ const Socials = () => {
                 </div>
             </div>
           </div>
+    </motion.div>
+       
   </>  
   );
 };

@@ -13,7 +13,7 @@ const Invite = () => {
   });
 
   const duration = 0.7;
-  const initial = { opacity: 0,  scale: .5};
+  const initial = { opacity: 0,  scale: .75};
   const animate = { opacity: 1, scale: 1 };
 
   return (
