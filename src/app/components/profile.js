@@ -24,6 +24,7 @@ const Profile = () => {
       animate = {animate}
       duration = {duration}
       
+      
     >
       <div className="flex flex-row justify-between w-full">
         <div className="justify-start items-center">
