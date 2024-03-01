@@ -13,8 +13,8 @@ const Profile = () => {
   });
 
   const duration = 1;
-  const initial = { opacity: 0, y: -100, scale: .7};
-  const animate = { opacity: 1, y: 0, scale: 1};
+  const initial = { opacity: 0,  scale: .3};
+  const animate = { opacity: 1, scale: 1};
   
   return (
     <motion.div
