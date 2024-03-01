@@ -18,7 +18,7 @@ const Invite = () => {
   const animate = { opacity: 1, marginBottom: 0, ease: "easeInOut"};
 
   return (
-    <motion.div whileHover={{ scale: 0.95, duration: 0.1 }}  transition = {transition} initial = {initial} animate={animate} duration = {duration} ref={ref} className="flex flex-row w-[90%] justify-between h-full items-center mt-5 px-5 py-5 gap-x-5 rounded-2xl bg-neutral-800 transition hover:bg-neutral-700">
+    <motion.div whileHover={{ scale: 0.99, duration: 0.1 }}  transition = {transition} initial = {initial} animate={animate} duration = {duration} ref={ref} className="flex flex-row w-[90%] justify-between h-full items-center mt-5 px-5 py-5 gap-x-5 rounded-2xl bg-neutral-800 transition hover:bg-neutral-700">
       <div className="flex flex-row w-auto h-auto items-center gap-x-5 justify-start">
         <svg
           width="32"
