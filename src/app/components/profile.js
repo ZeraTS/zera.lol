@@ -11,11 +11,19 @@ const Profile = () => {
     target: ref,
     offset: ["1 0", "1 .2"],
   });
+
+  const duration = 0.5;
+  const initial = { opacity: 0, y: -100, marginTop: 50};
+  const animate = { opacity: 1, y: 0, marginTop: 0};
+  
   return (
     <motion.div
       className="flex flex-col h-auto items-center bg-neutral-800 w-[90%] rounded-2xl py-6"
       ref={ref}
-      style={{ scale: scrollYProgress, opacity: scrollYProgress }}
+      initial  = {initial}
+      animate = {animate}
+      duration = {duration}
+      
     >
       <div className="flex flex-row justify-between w-full">
         <div className="justify-start items-center">
