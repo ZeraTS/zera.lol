@@ -13,8 +13,8 @@ const Invite = () => {
   });
 
   const duration = 0.7;
-  const initial = { opacity: 0,  scale: .75};
-  const animate = { opacity: 1, scale: 1 };
+  const initial = { opacity: 0,  marginBottom: 10, ease: "easeInOut"};
+  const animate = { opacity: 1, marginBottom: 0, ease: "easeInOut"};
 
   return (
     <motion.div whileHover={{ scale: 0.95 }} whileTap={{ scale: 0.92 }} initial = {initial} animate={animate} duration = {duration} ref={ref} className="flex flex-row w-[90%] justify-between h-full items-center mt-5 px-5 py-5 gap-x-5 rounded-2xl bg-neutral-800 transition hover:bg-neutral-700">
