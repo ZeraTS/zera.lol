@@ -12,7 +12,7 @@ const Socials = () => {
   return ( <>
   <motion.div initial = {initial} animate={animate} duration = {duration} className="flex flex-col w-full h-auto items-start">
   <div className="flex flex-col w-full h-auto items-start mt-5 px-7">
-        <p className="text-neutral-400 font-bold text-[12px] mt-5 mb-2">ACCOUNT & SOCIALS</p>
+        <p className="text-neutral-400 font-bold text-[12px] mt-5 mb-3">ACCOUNT & SOCIALS</p>
         </div>
         <div className="flex flex-col w-full bg-neutral-800 h-auto py-5 gap-y-0 ">
             <div className="w-full h-auto flex flex-row justify-between gap-x-5 transition hover:bg-neutral-700" id="portfolio">
