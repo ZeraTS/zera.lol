@@ -12,9 +12,9 @@ const Profile = () => {
     offset: ["1 0", "1 .2"],
   });
 
-  const duration = 0.5;
-  const initial = { opacity: 0, y: -100, marginTop: 50};
-  const animate = { opacity: 1, y: 0, marginTop: 0};
+  const duration = 1;
+  const initial = { opacity: 0, y: -100, scale: .7};
+  const animate = { opacity: 1, y: 0, scale: 1};
   
   return (
     <motion.div
