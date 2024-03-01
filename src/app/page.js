@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { EnvelopeOpenIcon } from "@radix-ui/react-icons"
 import { DiscordLogoIcon }  from "@radix-ui/react-icons"
 import { InstagramLogoIcon }  from "@radix-ui/react-icons"
@@ -6,6 +5,7 @@ import { TwitterLogoIcon }  from "@radix-ui/react-icons"
 import { GitHubLogoIcon }  from "@radix-ui/react-icons"
 import { FigmaLogoIcon }  from "@radix-ui/react-icons"
 import { LinkedInLogoIcon }  from "@radix-ui/react-icons"
+import { useRouter } from 'next/navigation';
 import './globals.css';
 
 export default function Home() { /*
@@ -51,7 +51,7 @@ export default function Home() { /*
   <>
   <main className="flex flex-col w-full min-h-screen bg-neutral-900 font-jakarta">
     <section className="flex flex-col w-full h-full text-white items-center">
-      <div className="flex flex-row w-full items-center justify-between pt-10 pb-5 pl-5 pr-5 bg-neutral-900 sticky top-0 z-10 shadow-sm">
+      <div className="flex flex-row w-full items-center justify-between pt-5 pb-5 pl-5 pr-5 bg-neutral-900 sticky top-0 z-10 shadow-sm">
         <div className="justify-start items-center w-auto flex">
         <h1 className="text-[20px] font-semibold justify-start">Your Designer</h1>
         </div>
