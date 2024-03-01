@@ -36,7 +36,7 @@ const Invite = () => {
             fill="white"
           />
         </svg>
-        <div className="flex flex-col w-auto h-auto items-start gap-y-1">
+        <div className="flex flex-col w-auto h- mb-1 items-start gap-y-1">
           <p className="text-white font-semibold text-[16px]">Invite members</p>
           <p className="text-neutral-300 font-normal text-[13px] leading-3">
             Telegram Group
