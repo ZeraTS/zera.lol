@@ -7,14 +7,12 @@ import { useRef } from "react";
 
 const Profile = () => {
   const ref = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["1 0", "1 .2"],
-  });
 
-  const duration = 1;
-  const initial = { opacity: 0,  scale: .3};
-  const animate = { opacity: 1, scale: 1};
+  const duration = .3; // Change the duration here
+  const transition = { duration: duration }; // Define the transition
+
+  const initial = { opacity: 0,  scale: .3 };
+  const animate = { opacity: 1, scale: 1 };
   
   return (
     <motion.div
@@ -23,7 +21,8 @@ const Profile = () => {
       initial  = {initial}
       animate = {animate}
       duration = {duration}
-      
+      transition = {transition}
+      ease="easeInOut"
       
     >
       <div className="flex flex-row justify-between w-full">
