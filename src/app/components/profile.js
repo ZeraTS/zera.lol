@@ -9,7 +9,7 @@ const Profile = () => {
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ["1 0", "1 .33"],
+    offset: ["1 0", "1 .2"],
   });
   return (
     <motion.div
