@@ -11,8 +11,13 @@ const Invite = () => {
     target: ref,
     offset: ["0 .5", "1 .33"],
   });
+
+  const duration = 0.6;
+  const initial = { opacity: 0,  scale: .5};
+  const animate = { opacity: 1, scale: 1 };
+
   return (
-    <motion.div whileHover={{ scale: 0.95 }} whileTap={{ scale: 0.92 }} ref={ref} className="flex flex-row w-[90%] justify-between h-full items-center mt-5 px-5 py-5 gap-x-5 rounded-2xl bg-neutral-800 transition hover:bg-neutral-700">
+    <motion.div whileHover={{ scale: 0.95 }} whileTap={{ scale: 0.92 }} initial = {initial} animate={animate} duration = {duration} ref={ref} className="flex flex-row w-[90%] justify-between h-full items-center mt-5 px-5 py-5 gap-x-5 rounded-2xl bg-neutral-800 transition hover:bg-neutral-700">
       <div className="flex flex-row w-auto h-auto items-center gap-x-5 justify-start">
         <svg
           width="32"
