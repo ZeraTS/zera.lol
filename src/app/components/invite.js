@@ -12,7 +12,7 @@ const Invite = () => {
     offset: ["0 .5", "1 .33"],
   });
 
-  const duration = 0.6;
+  const duration = 0.7;
   const initial = { opacity: 0,  scale: .5};
   const animate = { opacity: 1, scale: 1 };
 
