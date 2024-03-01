@@ -1,14 +1,12 @@
-import { EnvelopeOpenIcon } from "@radix-ui/react-icons"
-import { DiscordLogoIcon }  from "@radix-ui/react-icons"
-import { InstagramLogoIcon }  from "@radix-ui/react-icons"
-import { TwitterLogoIcon }  from "@radix-ui/react-icons"
-import { GitHubLogoIcon }  from "@radix-ui/react-icons"
-import { FigmaLogoIcon }  from "@radix-ui/react-icons"
-import { LinkedInLogoIcon }  from "@radix-ui/react-icons"
-import { useRouter } from 'next/navigation';
-import './globals.css';
-
-export default function Home() { /*
+import { useRouter } from 'next/navigation'
+import { motion } from "framer-motion"
+import { useScroll } from "framer-motion"
+import './globals.css'
+import Profile from './components/profile'
+import Invite from './components/invite'
+export default function Home() { 
+  
+  /*
   return (
    <> 
 <section className="relative min-h-screen w-auto h-[100%] items-center justify-center flex flex-col bg-black">
@@ -59,51 +57,8 @@ export default function Home() { /*
         <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3.23722 13.7272L7.5074 9.46185L11.7793 13.7289C12.0398 13.9891 12.393 14.1352 12.7613 14.1352C13.1295 14.1352 13.4827 13.9891 13.7432 13.7289C14.0036 13.4688 14.15 13.1159 14.15 12.7479C14.15 12.3799 14.0036 12.027 13.7432 11.7668L13.7432 11.7668L9.46987 7.49999L13.7424 3.23319L13.7424 3.23315C13.8713 3.10433 13.9735 2.9514 14.0433 2.78309C14.113 2.61478 14.1489 2.43439 14.1489 2.25221C14.1488 2.07004 14.1129 1.88967 14.043 1.72139C13.9732 1.55311 13.8709 1.40023 13.7419 1.27147C13.613 1.14271 13.4599 1.04059 13.2914 0.970942C13.123 0.901291 12.9424 0.865466 12.7601 0.865509C12.5778 0.865552 12.3973 0.901461 12.2289 0.971192C12.0604 1.04092 11.9074 1.14311 11.7785 1.27193L7.50739 5.53896L3.23638 1.27282C3.10856 1.14077 2.95576 1.0354 2.78684 0.962832C2.61751 0.89008 2.43537 0.851744 2.25105 0.850058C2.06673 0.848372 1.88392 0.883369 1.71328 0.95301C1.54264 1.02265 1.38758 1.12555 1.25716 1.2557C1.12673 1.38585 1.02356 1.54066 0.953656 1.71108C0.883755 1.88151 0.848532 2.06414 0.850047 2.24832C0.851562 2.4325 0.889784 2.61453 0.962478 2.78379C1.035 2.95265 1.14039 3.10542 1.2725 3.23323L5.54495 7.50001L1.27333 11.7668C1.14122 11.8946 1.03583 12.0473 0.963304 12.2162C0.89061 12.3855 0.852387 12.5675 0.850872 12.7517C0.849358 12.9359 0.884581 13.1185 0.954482 13.2889C1.02438 13.4593 1.12756 13.6141 1.25798 13.7443C1.38841 13.8745 1.54347 13.9773 1.71411 14.047C1.88475 14.1166 2.06756 14.1516 2.25188 14.1499C2.43619 14.1483 2.61833 14.1099 2.78767 14.0372C2.95659 13.9646 3.10939 13.8592 3.23722 13.7272Z" fill="white" stroke="white" stroke-width="0.3"/> </svg> 
         </div>
         </div>
-        <div className="flex flex-col h-auto items-center bg-neutral-800 w-[90%] rounded-2xl py-6">
-          <div className="flex flex-row justify-between w-full">
-          <div className="justify-start items-center">
-          <a className="flex items-center px-7 pt-1 transition hover:opacity-50">
-          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M6.26087 0H1.95652C1.43762 0 0.939971 0.206133 0.573052 0.573052C0.206133 0.939971 0 1.43762 0 1.95652V6.26087C0 6.77977 0.206133 7.27742 0.573052 7.64434C0.939971 8.01126 1.43762 8.21739 1.95652 8.21739H6.26087C6.77977 8.21739 7.27742 8.01126 7.64434 7.64434C8.01126 7.27742 8.21739 6.77977 8.21739 6.26087V1.95652C8.21739 1.43762 8.01126 0.939971 7.64434 0.573052C7.27742 0.206133 6.77977 0 6.26087 0ZM5.86957 5.86957H2.34783V2.34783H5.86957V5.86957ZM6.26087 9.78261H1.95652C1.43762 9.78261 0.939971 9.98874 0.573052 10.3557C0.206133 10.7226 0 11.2202 0 11.7391V16.0435C0 16.5624 0.206133 17.06 0.573052 17.4269C0.939971 17.7939 1.43762 18 1.95652 18H6.26087C6.77977 18 7.27742 17.7939 7.64434 17.4269C8.01126 17.06 8.21739 16.5624 8.21739 16.0435V11.7391C8.21739 11.2202 8.01126 10.7226 7.64434 10.3557C7.27742 9.98874 6.77977 9.78261 6.26087 9.78261ZM5.86957 15.6522H2.34783V12.1304H5.86957V15.6522ZM16.0435 0H11.7391C11.2202 0 10.7226 0.206133 10.3557 0.573052C9.98874 0.939971 9.78261 1.43762 9.78261 1.95652V6.26087C9.78261 6.77977 9.98874 7.27742 10.3557 7.64434C10.7226 8.01126 11.2202 8.21739 11.7391 8.21739H16.0435C16.5624 8.21739 17.06 8.01126 17.4269 7.64434C17.7939 7.27742 18 6.77977 18 6.26087V1.95652C18 1.43762 17.7939 0.939971 17.4269 0.573052C17.06 0.206133 16.5624 0 16.0435 0ZM15.6522 5.86957H12.1304V2.34783H15.6522V5.86957ZM9.78261 13.3043V10.9565C9.78261 10.6452 9.90629 10.3466 10.1264 10.1264C10.3466 9.90629 10.6452 9.78261 10.9565 9.78261C11.2679 9.78261 11.5665 9.90629 11.7866 10.1264C12.0068 10.3466 12.1304 10.6452 12.1304 10.9565V13.3043C12.1304 13.6157 12.0068 13.9143 11.7866 14.1344C11.5665 14.3546 11.2679 14.4783 10.9565 14.4783C10.6452 14.4783 10.3466 14.3546 10.1264 14.1344C9.90629 13.9143 9.78261 13.6157 9.78261 13.3043ZM18 12.5217C18 12.8331 17.8763 13.1317 17.6562 13.3518C17.436 13.572 17.1374 13.6957 16.8261 13.6957H15.6522V16.8261C15.6522 17.1374 15.5285 17.436 15.3083 17.6562C15.0882 17.8763 14.7896 18 14.4783 18H10.9565C10.6452 18 10.3466 17.8763 10.1264 17.6562C9.90629 17.436 9.78261 17.1374 9.78261 16.8261C9.78261 16.5147 9.90629 16.2162 10.1264 15.996C10.3466 15.7759 10.6452 15.6522 10.9565 15.6522H13.3043V10.9565C13.3043 10.6452 13.428 10.3466 13.6482 10.1264C13.8683 9.90629 14.1669 9.78261 14.4783 9.78261C14.7896 9.78261 15.0882 9.90629 15.3083 10.1264C15.5285 10.3466 15.6522 10.6452 15.6522 10.9565V11.3478H16.8261C17.1374 11.3478 17.436 11.4715 17.6562 11.6917C17.8763 11.9118 18 12.2104 18 12.5217Z" fill="white"/>
-</svg>
-
-            </a>
-          </div>
-            <div className="justify-start items-center w-auto flex z-0">
-            <a className="flex items-center pr-7 pt-1 transition hover:opacity-50">
-            <svg width="17" height="20" viewBox="0 0 17 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M2 10V16.4C2 16.8243 2.1712 17.2313 2.47595 17.5314C2.7807 17.8314 3.19402 18 3.625 18H13.375C13.806 18 14.2193 17.8314 14.524 17.5314C14.8288 17.2313 15 16.8243 15 16.4V10M11.75 5.2L8.5 2M8.5 2L5.25 5.2M8.5 2V12.4" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
-            </a>
-           </div>
-          </div>
-          <div className="rounded-full w-[60px] h-[60px] bg-neutral-700 mt-[20px] z-0 absolute"/>
-
-          <div className="flex flex-col justify-center items-center w-full h-auto gap-y-1 mt-[70px]">
-          <h1 className="text-[20px] font-semibold">Paul Allen</h1>
-          <p className="text-[14px] text-neutral-400 font-medium">Aspiring Developer</p>
-          <a className="flex flex-row text-center justify-center items-center py-2.5 bg-neutral-700 rounded-3xl w-[85%] mt-3 transition hover:bg-neutral-600 hover:scale-95">
-          <span className="text-white text-[15px] font-inter text-center font-semibold">Activities</span>
-          </a>
-          </div>
-        </div>
-        <div className="flex flex-row w-[90%] justify-between h-full items-center mt-5 px-5 py-5 gap-x-5 rounded-2xl bg-neutral-800 transition hover:bg-neutral-700 ">
-        <div className="flex flex-row w-auto h-auto items-center gap-x-5 justify-start">
-        <svg width="32" height="33" viewBox="0 0 32 33" fill="none" xmlns="http://www.w3.org/2000/svg" className="scale-110">
-<ellipse cx="16" cy="16.5" rx="16" ry="16.5" fill="#00D053"/>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M21.0088 11.1379C21.1838 11.0642 21.3754 11.0388 21.5636 11.0643C21.7518 11.0898 21.9297 11.1653 22.0789 11.2829C22.228 11.4005 22.3429 11.5559 22.4116 11.733C22.4802 11.91 22.5002 12.1022 22.4694 12.2896L20.8629 22.0342C20.707 22.9741 19.6757 23.5132 18.8137 23.045C18.0926 22.6533 17.0216 22.0498 16.0582 21.4201C15.5766 21.1048 14.1011 20.0955 14.2825 19.3772C14.4383 18.7631 16.9175 16.4554 18.3341 15.0833C18.8902 14.5443 18.6366 14.2333 17.98 14.7291C16.3494 15.9602 13.7314 17.8324 12.8658 18.3594C12.1022 18.824 11.7041 18.9034 11.2281 18.824C10.3597 18.6795 9.55433 18.4557 8.897 18.183C8.00875 17.8146 8.05196 16.5935 8.89629 16.2379L21.0088 11.1379Z" fill="white"/>
-</svg>
-          <div className="flex flex-col w-auto h-auto items-start gap-y-1">
-          <p className="text-white font-semibold text-[16px]">Invite members</p>
-          <p className="text-neutral-300 font-normal text-[13px] leading-3">Telegram Group</p>
-            </div>
-        </div>
-        <div className="flex justify-end items-center w-auto h-auto">
-        <svg width="9" height="14" viewBox="0 0 9 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M1.1332 1.13989C0.622268 1.65641 0.622268 2.49026 1.1332 3.00679L5.08382 7.00068L1.1332 10.9946C0.622268 11.5111 0.622268 12.3449 1.1332 12.8615C1.64562 13.3795 2.47511 13.3795 2.98753 12.8615L7.8668 7.92875C8.37773 7.41223 8.37773 6.57838 7.8668 6.06185L2.98753 1.12914C2.4841 0.620189 1.64397 0.623513 1.1332 1.13989Z" fill="#BBBBBB" stroke="#BBBBBB" stroke-width="0.5"/>
-</svg>
-          </div>
-         </div>
+        <Profile/>
+        <Invite/>
         <div className="flex flex-col w-full h-auto items-start mt-5 px-7">
         <p className="text-neutral-400 font-bold text-[12px] mt-5 mb-2">ACCOUNT & SOCIALS</p>
         </div>
@@ -198,8 +153,8 @@ export default function Home() { /*
               <span className="text-[16px] font-semibold">Kitty Party</span>
             </a>
           </div>
-
-          <p className="text-neutral-400 text-center font-normal text-[14px] w-[90%] py-10">This is inspired heavily on Cash App's design. I claim no ownership lol.</p>
+          <p className="text-neutral-400 text-center font-normal text-[14px] w-[90%] py-10">This is inspired heavily on Cash App's design. I claim no ownership lol.
+          </p>
           
     </section>
   </main>
